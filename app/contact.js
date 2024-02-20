@@ -31,15 +31,17 @@ loginButton.addEventListener("click", function () {
   nameInput.classList.replace("border-danger", "border-black");
   passwordInput.classList.replace("border-danger", "border-black");
   phoneInput.classList.replace("border-danger", "border-black");
-  registerError.style.visibility = "invisible";
 
   const registerError = document.getElementById("registerError");
   const errorMessage = document.getElementById("errorMessage");
+
+  registerError.style.visibility = "invisible";
 
   let name = nameInput.value;
   let password = passwordInput.value;
   let phoneNumber = phoneInput.value;
 
+  //Presence check
   if (name.length == 0) {
     nameInput.classList.replace("border-black", "border-danger");
     errorMessage.innerText = "You have to put a name";
@@ -52,13 +54,37 @@ loginButton.addEventListener("click", function () {
     phoneInput.classList.replace("border-black", "border-danger");
     errorMessage.innerText = "You have to enter your phone number";
     registerError.style.visibility = "visible";
-  } else if (name.length > 70) {
+  }
+
+  //Checking stuff for names
+  else if (name.length > 70) {
     nameInput.classList.replace("border-black", "border-danger");
     errorMessage.innerText = "Your name is too long";
     registerError.style.visibility = "visible";
   } else if (!name.test("/^[a-zA-Z]+$/")) {
     nameInput.classList.replace("border-black", "border-danger");
     errorMessage.innerText = "Your name can only have letters";
+    registerError.style.visibility = "visible";
+  }
+
+  //Checking stuff for password
+  else if (password.length < 8) {
+    passwordInput.classList.replace("border-black", "border-danger");
+    errorMessage.innerText = "Your password is too short";
+    registerError.style.visibility = "visible";
+  } else if (password.length > 100) {
+    passwordInput.classList.replace("border-black", "border-danger");
+    errorMessage.innerText = "Your password is too long";
+    registerError.style.visibility = "visible";
+  }
+
+  //Checking stuff for phone number
+  else if (
+    phoneNumber.length != 10 ||
+    !phoneInput.test("^(+27|0)[6-8][0-9]{8}$")
+  ) {
+    phoneInput.classList.replace("border-black", "border-danger");
+    errorMessage.innerText = "Your phone number is not valid";
     registerError.style.visibility = "visible";
   }
 });
