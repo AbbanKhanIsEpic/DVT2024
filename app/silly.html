@@ -21,11 +21,23 @@
             <h2 class="display-5 pb-3">Reservation details</h2>
             <h4 for="date">Reservation date:</h4>
             <div class="input-group input-group-lg border-2 pb-3">
-                <input type="date" id="date" name="date" class="form-control border-2 border-black">
+                <input aria-label="date" type="date" id="date" name="date" class="form-control border-2 border-black">
             </div>
             <h4 for="date">Reservation time:</h4>
+            <div class="input-group input-group-lg border-2 pb-3">
+                <input aria-label="time" type="time" id="time" name="time" class="form-control border-2 border-black">
+            </div>
+            <h4 for="length">Duration:</h4>
+            <div class="input-group input-group-lg border-2 pb-3">
+                <input aria-label="length" class="form-control border-2 border-black">
+            </div>
+            <h4 for="people">How many people:</h4>
+            <div class="input-group input-group-lg border-2 pb-3">
+                <input aria-label="people" class="form-control border-2 border-black">
+            </div>
+            <h4 for="people">Is it for an event?</h4>
             <div class="input-group input-group-lg border-2">
-                <input type="time" id="time" name="time" class="form-control border-2 border-black">
+                <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">No</button>
             </div>
         </form>
     </div>
