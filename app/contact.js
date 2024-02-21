@@ -77,6 +77,8 @@ loginButton.addEventListener("click", function () {
     errorMessage.innerText = "Your email is too long";
     registerError.style.visibility = "visible";
   }
+  //No regex
+  //use index of
   else if(!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)){
     emailInput.classList.replace("border-black", "border-danger");
     errorMessage.innerText = "Your email is incorrect";
