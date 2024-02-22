@@ -52,11 +52,9 @@ document.querySelector("#confirmButton").addEventListener("click", function () {
   const dateString = document.querySelector("#dateInput").value;
 
   //This is a standard that you have to book a reservation 3 days and 5 hours in advance minimum
-  const threeDaysAfterToday = new Date();
-  threeDaysAfterToday.setDate(threeDaysAfterToday.getDate() + 3);
-  threeDaysAfterToday.setHours(threeDaysAfterToday.getHours() + 5);
+  const threeDaysAfterToday = new Date().getDate() + 3;
 
-  const date = new Date(dateString);
+  const date = new Date(dateString).getDate();
 
   if (dateString.length == 0) {
     alert("You have to select a date");
@@ -85,16 +83,20 @@ document.querySelector("#confirmButton").addEventListener("click", function () {
   const endHour = endTime.split(":")[0];
   const endMinutes = endTime.split(":")[1];
 
+  const timeDiffInMintues = (endHour - startHour) * 60 + (endMinutes - startMinutes);
+
   if (endTime.length == 0) {
     alert("You have to select a time when you arrive");
-  } else if (endHour < startHour) {
+  } else if (timeDiffInMintues <= 0) {
     alert("Your end time must be after your start time");
-  } else if (endHour == startHour) {
+  } else if (timeDiffInMintues < 60) {
     alert("A reservation has to be atleast 1 hour");
+  }
+  else if(timeDiffInMintues > 300){
+    alert("A reservation can not be longer than 5 hour");
   }
 
   //Check for number of people
-
   const numOfPeople = document.querySelector("#peopleInput").value;
 
   if (numOfPeople.length == 0) {
@@ -103,5 +105,15 @@ document.querySelector("#confirmButton").addEventListener("click", function () {
     alert("You must say the number of people in numbers without decimal");
   } else if (numOfPeople <= 0) {
     alert("You must have at least 1 person to book a reservation");
+  }
+
+  //There is no check needed for event
+  const isEvent = document.querySelector("#eventCheckbox").checked;
+
+  //Check for comments
+  const comment = document.querySelector("#commentsTextArea").value;
+
+  if(comment.length > 5000){
+    alert("Your comment is too long")
   }
 });
