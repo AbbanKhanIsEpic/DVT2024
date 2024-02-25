@@ -20,43 +20,60 @@
             <h1 class="display-3 pb-4">Book a reservation</h1>
             <h2 class="display-5 pb-3">Reservation details</h2>
             <h4 for="name">Name</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
+            <div class="input-group input-group-lg border-2">
                 <input aria-label="name" type="text" id="nameInput" class="form-control border-2 border-black" />
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="nameError">
+            </p>
             <h4 for="email">Email</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
-                <input aria-label="email" type="text" id="emailInput" class="form-control border-2 border-black" />
+            <div class="input-group input-group-lg border-2">
+                <input aria-label="email" type="email" id="emailInput" class="form-control border-2 border-black" />
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="emailError">
+            </p>
             <h4 for="phone">Phone number</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
-                <input aria-label="phone" type="text" id="phoneInput" class="form-control border-2 border-black" />
+            <div class="input-group input-group-lg border-2">
+                <input aria-label="phone" type="tel" id="phoneInput" class="form-control border-2 border-black" />
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="phoneError">
+            </p>
             <h4 for="date">Reservation date:</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
+            <div class="input-group input-group-lg border-2">
                 <input aria-label="date" type="date" id="dateInput" class="form-control border-2 border-black">
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="dateError">
+            </p>
             <h4 for="startTime">Reservation start time:</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
+            <div class="input-group input-group-lg border-2">
                 <input aria-label="startTime" type="time" id="startTimeInput"
                     class="form-control border-2 border-black">
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="startTimeError">
+            </p>
             <h4 for="endTime">Reservation end time:</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
+            <div class="input-group input-group-lg border-2">
                 <input aria-label="endTime" type="time" id="endTimeInput" class="form-control border-2 border-black">
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="endTimeError">
+            </p>
             <h4 for="people">How many people:</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
-                <input aria-label="people" id="peopleInput" class="form-control border-2 border-black">
+            <div class="input-group input-group-lg border-2">
+                <input aria-label="people" type="number" id="peopleInput" class="form-control border-2 border-black"
+                    min="0" max="100">
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="peopleError">
+            </p>
             <h4 for="event">Is it for an event?</h4>
             <div class="form-check form-check-inline">
                 <input aria-label="event" class="form-check-input" type="checkbox" id="eventCheckbox">
                 <label class="form-check-label" for="eventCheckbox">Yes</label>
             </div>
             <h4 for="comments">Comments (optional):</h4>
-            <div class="input-group input-group-lg border-2 pb-3">
+            <div class="input-group input-group-lg border-2">
                 <textarea aria-label="comments" class="form-control" rows="3" id="commentsTextArea"></textarea>
             </div>
+            <p class="fw-bold text-danger" style="visibility: hidden;" id="commentError">
+            </p>
             <h4 for="confirm">Click the button to confirm</h4>
             <div class="input-group input-group-lg border-2">
                 <button aria-label="confirm" type="button" class="btn btn-primary" id="confirmButton">Confirm</button>
@@ -64,6 +81,6 @@
         </form>
     </div>
 </body>
-<script type="module" src="/app/reservation.js"></script>
+<script type="module" src="/app/validator.js"></script>
 
 </html>
